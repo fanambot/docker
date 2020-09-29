@@ -25,3 +25,5 @@ To install in k8s using kubectl:
 To add attributes for pods using kubectl:
 `kubectl run myservice --image=kalaipm/telnet --namespace=airflow --serviceaccount=juvo --overrides='{"apiVersion": "v1", "spec": {"nodeSelector": { "appgroup": "data" }}}'`
 
+https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
+
