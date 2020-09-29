@@ -22,3 +22,6 @@ To install packages in non-root docker container in k8s:
 To install in k8s using kubectl:
 `kubectl run utils-pod --image=kalaipm/utils --namespace=default --serviceaccount=default`
 
+To add attributes for pods using kubectl:
+`kubectl run myservice --image=kalaipm/telnet --namespace=airflow --serviceaccount=juvo --overrides='{"apiVersion": "v1", "spec": {"nodeSelector": { "appgroup": "data" }}}'`
+
