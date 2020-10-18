@@ -23,7 +23,7 @@ To install in k8s using kubectl:
 `kubectl run utils-pod --image=kalaipm/utils --namespace=default --serviceaccount=default`
 
 To add attributes for pods using kubectl:
-`kubectl run myservice --image=kalaipm/telnet --namespace=airflow --serviceaccount=test --overrides='{"apiVersion": "v1", "spec": {"nodeSelector": { "appgroup": "data" }}}'`
+`kubectl run myservice --image=kalaipm/telnet --namespace=airflow --serviceaccount=airflow --overrides='{"apiVersion": "v1", "spec": {"nodeSelector": { "appgroup": "data" }}}'`
 
 https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 
