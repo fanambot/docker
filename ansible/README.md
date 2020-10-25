@@ -15,5 +15,5 @@ DOCKER_BUILDKIT=1 docker build --ssh github=$HOME/.ssh/kalaibot -t ansible .
 * -e AWS_PROFILE=primary-sa -> change the aws profile based on the host region
 
 docker run --rm -it -v $HOME/.ssh/kalaibot:/root/.ssh/kalaibot \
--v $HOME/.aws/config:/root/.aws/config -v $HOME/.aws/credentials:/root/.aws/credentials -e AWS_PROFILE=primary-sa -w /root/juvo-ansible ansible
+-v $HOME/.aws/config:/root/.aws/config -v $HOME/.aws/credentials:/root/.aws/credentials -e AWS_PROFILE=primary-sa -w /root/ansible ansible
 ```
