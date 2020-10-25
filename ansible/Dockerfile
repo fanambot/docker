@@ -17,6 +17,6 @@ RUN apt-get update && apt-get install -y build-essential libssl-dev libffi-dev p
 COPY ec2.ini ec2.py /etc/ansible/inventory/
 RUN chmod 700 /etc/ansible/inventory/ec2.py
 RUN --mount=type=ssh,id=github git clone git@github.com:kalaibot/ansible.git
-RUN ln -s /root/juvo-ansible/inventory/static /etc/ansible/inventory/static
+RUN ln -s /root/ansible/inventory/static /etc/ansible/inventory/static
 EXPOSE 22
 CMD ["/bin/bash"]
