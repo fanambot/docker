@@ -1,0 +1,32 @@
+eval "$(ssh-agent -s)"
+eu_ansible_playbook() {
+  ssh-add -k ~/.ssh/kalaibot
+  sed -i 's/regions = .*/regions = eu-west-1/g' /etc/ansible/inventory/ec2.ini
+  ansible-playbook -e \
+   "ansible_user=ubuntu ansible_ssh_common_args='-o ForwardAgent=yes -o ProxyCommand=\"ssh -o ForwardAgent=yes -W %h:%p -q ubuntu@jump.xxxx.xxx.xxx\"'" \
+   "$@"
+}
+ 
+us_ansible_playbook() {
+  ssh-add -k ~/.ssh/kalaibot
+  sed -i 's/regions = .*/regions = us-east-1/g' /etc/ansible/inventory/ec2.ini
+  ansible-playbook -e \
+   "ansible_user=ubuntu ansible_ssh_common_args='-o ForwardAgent=yes -o ProxyCommand=\"ssh -o ForwardAgent=yes -W %h:%p -q ubuntu@jump.xxxx.xxx.xxx\"'" \
+   "$@"
+}
+ 
+ap_ansible_playbook() {
+  ssh-add -k ~/.ssh/kalaibot
+  sed -i 's/regions = .*/regions = ap-southeast-1/g' /etc/ansible/inventory/ec2.ini
+  ansible-playbook -e \
+   "ansible_user=ubuntu ansible_ssh_common_args='-o ForwardAgent=yes -o ProxyCommand=\"ssh -o ForwardAgent=yes -W %h:%p -q ubuntu@jump.xxxx.xxx.xxx\"'" \
+   "$@"
+}
+ 
+sa_ansible_playbook() {
+  ssh-add -k ~/.ssh/kalaibot
+  sed -i 's/regions = .*/regions = sa-east-1/g' /etc/ansible/inventory/ec2.ini
+  ansible-playbook -e \
+   "ansible_user=ubuntu ansible_ssh_common_args='-o ForwardAgent=yes -o ProxyCommand=\"ssh -o ForwardAgent=yes -W %h:%p -q ubuntu@jump.xxxx.xxx.xxx\"'" \
+   "$@"
+}
