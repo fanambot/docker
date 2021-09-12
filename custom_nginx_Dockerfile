@@ -1,6 +1,6 @@
 FROM ubuntu
 RUN apt update && apt install nginx -y
-RUN sed -i 's/80/9500/g' /etc/nginx/sites-available/default
+RUN sed -i 's/80/9500/g1' /etc/nginx/sites-available/default
 COPY web_index.html /var/www/html/index.html
 EXPOSE 9500
 CMD /usr/sbin/nginx && tail -f /dev/null
